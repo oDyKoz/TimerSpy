@@ -186,7 +186,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 
 /* Responsividade */
-@media (max-width: 550px) {
+@media (max-width: 605px) {
   .Body-Popups {
     justify-content: flex-end;
     gap: 0;
@@ -209,6 +209,13 @@ input[type="number"]::-webkit-inner-spin-button {
     font-size: 55px;
   }
   
+  div.modalUp div.modalUp-content button{
+    width: 150cm;
+    max-width: 885px ;
+  }
+}
+
+@media (max-width: 550px) {
   div.modalUp div.modalUp-content button{
     width: 15cm;
     max-width: 885px ;
