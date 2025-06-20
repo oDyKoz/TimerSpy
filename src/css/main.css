@@ -9,6 +9,8 @@
 
 body {
     min-height: 100vh;
+    --text-color: #222;
+    --bkg-color: #fff;
 }
 
 
@@ -17,15 +19,6 @@ body {
   justify-content: space-between;
   position: relative;
 }
-
-/* Método Pomodoro */
-.pomodoro {
-  display: flex;
-  align-items: start;
-  justify-content: start;
-  position: relative;
-}
-
 
 /* Modal Pomodoro*/
 div.modalUp {
@@ -53,7 +46,7 @@ div.modalUp div.modalUp-content {
 div.modalUp .bi-x-circle {
   pointer-events: visible;
   background-color: rgba(179, 179, 179, 0);
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .upgrade .content-upgrade button {
@@ -72,7 +65,26 @@ div.modalUp .bi-x-circle {
 
 }
 
+/* Corpo do Modal Upgrade */
+.Body-modalUp {
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+}
 
+
+.Body-modalUp .Body-modalUp-Content {
+  background-color: rgb(216, 216, 216);
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 8px;
+  i {
+    color: aliceblue;
+    background-color: red;
+    padding: 2px 8px;
+    border-radius: 5px;
+  }
+}
 
 /* Pop-up */
 .container-popup-color {
@@ -171,16 +183,12 @@ input[type="number"]::-webkit-inner-spin-button {
   margin: 0;
 }
 
-/* Firefox */
-input[type="number"] {
-  -moz-appearance: textfield;
-}
 
 
 /* Responsividade */
 @media (max-width: 600px) {
   .Body-Popups {
-    justify-content: flex-start;
+    justify-content: flex-end;
     gap: 0;
   }
 
@@ -199,5 +207,9 @@ input[type="number"] {
 
   .container-count #timerDisplay{
     font-size: 55px;
+  }
+
+  div.modalUp .bi-x-circle{
+    margin-left: 70vh;
   }
 }
