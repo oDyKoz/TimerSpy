@@ -3,7 +3,7 @@ let tempoRestante = 0;
 let pausado = false;
 
 function iniciarTimer() {
-  clearInterval(intervalo); // limpa qualquer contador anterior
+  clearInterval(intervalo); // Limpa qualquer contador anterior
   pausado = false;
 
   let h = parseInt(document.getElementById("horas").value) || 0;
@@ -13,7 +13,7 @@ function iniciarTimer() {
   tempoRestante = h * 3600 + m * 60 + s;
 
   if (tempoRestante <= 0) {
-    alert("Digite um valor!");
+    // Se o tempo for menor ou igual a 0, não faz nada
     return;
   }
 
@@ -28,8 +28,7 @@ function rodarContagem() {
       atualizarDisplay(tempoRestante);
 
       if (tempoRestante <= 0) {
-        clearInterval(intervalo);
-        alert("⏰ Timer finalizado!");
+        clearInterval(intervalo); // Para o contador quando chegar a 0
       }
     }
   }, 1000);
@@ -38,8 +37,6 @@ function rodarContagem() {
 function pausarOuContinuar() {
   if (tempoRestante <= 0) return;
   pausado = !pausado;
-  const btn = event.target;
-  btn.textContent = pausado ? "Continuar" : "Pausar";
 }
 
 function resetarTimer() {
@@ -47,7 +44,6 @@ function resetarTimer() {
   tempoRestante = 0;
   pausado = false;
   atualizarDisplay(0);
-  document.querySelector("button[onclick='pausarOuContinuar()']").innerHTML = '<img src="img/pause.png" alt="Pausar" width="50">';
 }
 
 function atualizarDisplay(segundos) {
@@ -55,6 +51,7 @@ function atualizarDisplay(segundos) {
   let m = Math.floor((segundos % 3600) / 60);
   let s = segundos % 60;
 
+  // Atualiza o conteúdo dentro do div "timerDisplay"
   document.getElementById("timerDisplay").textContent =
     `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
 }
