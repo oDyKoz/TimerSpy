@@ -1,23 +1,23 @@
 // ModalConfig.js
-export let modal;
+export let myModal;
 export let btnOpen;
 export let btnClose;
 
 export function ConfigModal() {
     // Quando o usuário clica no botão, abre o modal
     btnOpen.onclick = function() {
-        modal.style.display = "flex"; // Exibe o modal
+        myModal.style.display = "flex"; // Exibe o modal
     }
 
     // Quando o usuário clica no <span> (x), fecha o modal
     btnClose.onclick = function() {
-        modal.style.display = "none"; // Esconde o modal
+        myModal.style.display = "none"; // Esconde o modal
     }
 
     // Quando o usuário clica fora do modal, fecha o modal
     window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none"; // Esconde o modal
+        if (event.target == myModal) {
+            myModal.style.display = "none"; // Esconde o modal
         }
     }
 }
@@ -25,7 +25,7 @@ export function ConfigModal() {
 // Aguarde o carregamento do DOM
 document.addEventListener("DOMContentLoaded", function() {
     // Obtém o modal
-    modal = document.getElementById("myModal");
+    myModal = document.getElementById("myModal");
     // Obtém o botão que abre o modal
     btnOpen = document.getElementById("openModal");
     // Obtém o elemento <span> que fecha o modal

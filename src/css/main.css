@@ -139,6 +139,24 @@ div.modal div.modal-content {
   box-shadow: 0 4px 8px rgba(112, 112, 112, 0.2); 
 }
 
+/* Dark Mode */
+
+.Body-DarkMode {
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0px;
+}
+
+.Body-DarkMode p {
+   margin-bottom: 0;
+}
+
+.Body-DarkMode,
+button{
+  background-color: #e0e0e08e;
+}
+
+/* Timer display */
 
 .container-count {
   display: flex;
@@ -150,8 +168,6 @@ div.modal div.modal-content {
   padding: 21vh;
   gap: 5px;
 }
-
-/* Timer display */
 
 #timerDisplay {
   font-size: 2.5em;
