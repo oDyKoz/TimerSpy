@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <title>TimerSpy</title>
 </head>
-<body>
+<body >
     <!-- Modal de Atualições -->
     <div class="modalUp" id="modalUp">
-        <div class="modalUp-content">
+        <div class="modalUp-content" id="bg-icons">
             <button class="bi bi-x-circle close" id="closeModalUp"></button>
                 <div class="Body-modalUp">
                     <h1>Painel de Upgrade</h1>
@@ -32,7 +32,7 @@
 
     <!-- Modal de configurações -->
     <div class="modal" id="myModal">
-        <div class="modal-content">
+        <div class="modal-content" id="bg-icons">
              <button class="bi bi-x-circle close" id="closeModal"></button>
                 <div class="scroll-container">
                     <div class="scroll-header">
@@ -42,7 +42,10 @@
                         <div class="scroll-item">
                             <div class="Body-DarkMode">
                                 <h2>Dark Mode</h2>
-                                <button class="btn-toggle bi bi-brightness-alt-high-fill"></button>
+                                <div class="Body-Buttons-DarkMode">
+                                    <button class="btn-toggle-light bi bi-brightness-alt-high-fill"></button>
+                                    <button class="btn-toggle-dark bi bi-moon-fill"></button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -56,14 +59,14 @@
 <div class="Body-Popups">
     <!-- Modal Upgrade -->
     <div class="upgrade" id="upgrade">
-        <div class="content-upgrade">
+        <div class="content-upgrade" id="bg-icons">
             <button id="openModalUp" class="bi bi-capslock-fill"></button>
             <p>Upgrade</p>
         </div>
     </div>
     <!-- Modal Config-->
-    <div class="container-popup-color">
-        <div class="content popup-color-buttom">
+    <div class="container-popup-color" >
+        <div class="content popup-color-buttom" id="bg-icons">
             <button id="openModal" class="bi bi-gear-fill"></button>
             <p>Config</p>
         </div>
