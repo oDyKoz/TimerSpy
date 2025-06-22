@@ -1,0 +1,85 @@
+/* Dark Mode CSS*/
+
+/* Variaveis da Troca */
+
+/* Padrão */
+:root {
+    --empty-background: #ffffff00 ;
+    --bg-main: #fefdfb;
+    --color-letters: #000;
+    --bg-mainMD: #252525;
+    --color-letterMD: #fefdfb;
+    --color-iconsMD: #000;
+}
+
+button.btn-toggle-light,
+button.Body-Buttons-DarkMode {
+    transition: .9s;
+}
+
+/* Corpo do Card */
+.Body-DarkMode {
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0px;
+  background-color: #e0e0e08e;
+  color: var(--color-letters);
+}
+
+.Body-DarkMode h2 {
+    font-size: 15px;
+    margin: 0px;
+}
+
+.Body-DarkMode p {
+   margin-bottom: 0;
+}
+
+/* Estilização do Botão */
+
+.Body-DarkMode 
+button{
+    cursor: pointer;
+    background-color: var(--empty-background);
+}
+
+.Body-DarkMode 
+button.btn-toggle-light{
+    display: inline;
+    padding: 0px 6px;
+    border-radius: 25px;
+    background-color: var(--bg-main);
+}
+
+.Body-DarkMode 
+button.btn-toggle-light{
+    padding: 0px 6px;
+    margin-bottom:2px ;
+    border-radius: 25px;
+    background-color: none;
+}
+
+.Body-DarkMode 
+button.btn-toggle-dark{
+    display: none;
+    color: #fefdfb;
+    background-color: #000;
+    padding: 5px 8px;
+    margin-left: 40px;
+    border-radius: 20px;
+}
+
+.Body-Buttons-DarkMode {
+    background-color: grey;
+    border-radius: 30px;
+    padding-left: 3px 3px;
+    margin-right: 365px;
+} 
+
+.btn-toggle-light {
+    font-size: 20px;
+}
+
+.btn-toggle-dark {
+    font-size: 15px;
+}

@@ -1,4 +1,5 @@
 @import "bootstrap-icons/font/bootstrap-icons.css";
+@import "functions/DarkMode.css";
 
 * {
     padding: 0;
@@ -9,10 +10,8 @@
 
 body {
     min-height: 100vh;
-    --text-color: #222;
-    --bkg-color: #fff;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
-
 
 .Body-Popups{
   display: flex;
@@ -51,7 +50,7 @@ div.modalUp .bi-x-circle {
 
 .upgrade .content-upgrade button {
   pointer-events: visible;
-  background-color: white;
+  background-color: var(--bg-main);
   font-size: 5vh;
 }
 .upgrade .content-upgrade {
@@ -67,7 +66,7 @@ div.modalUp .bi-x-circle {
 
 /* Corpo do Modal Upgrade */
 .Body-modalUp {
-  background-color: white;
+  background-color: var(--bg-main);
   padding: 15px;
   border-radius: 8px;
 }
@@ -102,7 +101,7 @@ div.modalUp .bi-x-circle {
 /* Conteúdo do Pop up */
 .container-popup-color .content button {
   pointer-events: visible;
-  background-color: white;
+  background-color: var(--bg-main);
   font-size: 5vh;
 }
 .container-popup-color .content {
@@ -139,22 +138,7 @@ div.modal div.modal-content {
   box-shadow: 0 4px 8px rgba(112, 112, 112, 0.2); 
 }
 
-/* Dark Mode */
 
-.Body-DarkMode {
-  padding: 10px;
-  border-radius: 5px;
-  margin: 10px 0px;
-}
-
-.Body-DarkMode p {
-   margin-bottom: 0;
-}
-
-.Body-DarkMode,
-button{
-  background-color: #e0e0e08e;
-}
 
 /* Timer display */
 
