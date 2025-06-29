@@ -41,7 +41,7 @@
 
 export let ModalStyle;
 export let letters;
-export let bgIcons;
+export let bgAll;
 export let body;
 export let botaoLight;
 export let botaoDark;
@@ -49,11 +49,11 @@ export let botaoDark;
 export function DarkModeConfig() {
   // Pega os elementos HTML
   body = document.body;
-  bgIcons = document.querySelector('bg-icons')
-  letters = document.querySelector('h1','h2','h3','h4','p','span','i')
-  ModalStyle = document.querySelector('modalUp')
+  bgAll = document.querySelector('.bg-all'); // Adicionado ponto para classe
+  letters = document.querySelectorAll('h1, h2, h3, h4, p, span, i'); // Usando querySelectorAll com sintaxe correta
+  ModalStyle = document.querySelector('.modalUp'); // Adicionado ponto para classe
   
-  // Pega os botões
+  // Pega os botões (corrigindo os seletores)
   botaoLight = document.querySelector('.btn-toggle-light');
   botaoDark = document.querySelector('.btn-toggle-dark');
 
@@ -62,10 +62,19 @@ export function DarkModeConfig() {
     botaoLight.style.display = "none";
     botaoDark.style.display = "inline";
     
-    // Aplica tema dark
-    body.setAttribute('style', 'background:#252525;');
-      bgIcons.setAttribute('style','background:#252525;');
-      letters.setAttribute('style','background:#fff;');
+    // Aplica background dark
+    body.style.background = '#252525';
+    if (bgAll) bgAll.style.backgroundColor = '#252525';
+
+
+
+    
+    // Aplica estilo para todos os elementos de texto
+    letters.forEach(element => {
+      element.style.color = '#fff'; // Muda a cor do texto, não o background
+    });
+
+
   }
 
   // Botão light clicado
@@ -74,18 +83,19 @@ export function DarkModeConfig() {
     botaoLight.style.display = "inline";
     
     // Aplica tema light
-    body.setAttribute('style', 'background:#fefdfb;');
+    body.style.background = '#fefdfb';
+    
+    // Volta cor original do texto
+    letters.forEach(element => {
+      element.style.color = ''; // Remove o estilo inline
+    });
   }
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-
-    botaoLight = document.querySelector("btn-toggle-light");
-  
-    botaoDark = document.querySelector("btn-toggle-dark");
-
- 
-
+    // Corrigindo seletores (adicionando ponto para classes)
+    botaoLight = document.querySelector(".btn-toggle-light");
+    botaoDark = document.querySelector(".btn-toggle-dark");
   
     DarkModeConfig();
 });

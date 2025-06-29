@@ -88,11 +88,88 @@ document.addEventListener('DOMContentLoaded', () => {
     icon.classList.add("bi-caret-right-fill");
   }
 
-  function notificarConclusao() {
-    console.log("Timer concluído!");
-    alert("Timer concluído!");
+  // URL do áudio padrão (pode ser alterada)
+const DEFAULT_ALARM_SOUND = 'https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3';
+
+function notificarConclusao() {
+  // 1. Obter o áudio personalizado ou usar o padrão
+  const customSoundUrl = document.getElementById('customAlarmSound').value.trim();
+  const alarmSound = new Audio(customSoundUrl || DEFAULT_ALARM_SOUND);
+  alarmSound.loop = true;
+
+  // 2. Criar notificação estilizada
+  const notification = document.createElement('div');
+  notification.id = 'alarmNotification';
+  notification.innerHTML = `
+    <div class="alarm-content">
+      <i class="bi bi-alarm-fill"></i>
+      <span>Timer finalizado!</span>
+      <button id="stopAlarmBtn">Parar</button>
+    </div>
+  `;
+  
+  // Estilos da notificação (pode ser movido para CSS)
+  notification.style.position = 'fixed';
+  notification.style.top = '20px';
+  notification.style.left = '50%';
+  notification.style.transform = 'translateX(-50%)';
+  notification.style.backgroundColor = '#ff4444';
+  notification.style.color = 'white';
+  notification.style.padding = '15px 25px';
+  notification.style.borderRadius = '8px';
+  notification.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+  notification.style.zIndex = '10000';
+  notification.style.display = 'flex';
+  notification.style.alignItems = 'center';
+  notification.style.gap = '12px';
+  notification.style.animation = 'fadeIn 0.3s ease-out';
+  
+  document.body.appendChild(notification);
+
+  // 3. Tocar o alarme com tratamento de erro
+  alarmSound.play().catch(error => {
+    console.error('Erro ao tocar áudio personalizado:', error);
+    // Fallback para áudio padrão
+    const defaultSound = new Audio(DEFAULT_ALARM_SOUND);
+    defaultSound.loop = true;
+    defaultSound.play();
+    alarmSound = defaultSound; // Atualiza a referência
+  });
+
+  // 4. Botão para parar o alarme
+  document.getElementById('stopAlarmBtn').addEventListener('click', () => {
+    alarmSound.pause();
+    alarmSound.currentTime = 0;
+    notification.remove();
+  });
+
+  // 5. Notificação do navegador (opcional)
+  if ('Notification' in window) {
+    if (Notification.permission === 'granted') {
+      new Notification('Timer Concluído', {
+        body: 'O tempo definido acabou!',
+        icon: '/caminho/para/icone.png'
+      });
+    } else if (Notification.permission !== 'denied') {
+      Notification.requestPermission().then(permission => {
+        if (permission === 'granted') {
+          new Notification('Timer Concluído', {
+            body: 'O tempo definido acabou!',
+            icon: '/caminho/para/icone.png'
+          });
+        }
+      });
+    }
   }
 
+  // 6. Auto-remover após 30 segundos (opcional)
+  setTimeout(() => {
+    if (document.body.contains(notification)) {
+      alarmSound.pause();
+      notification.remove();
+    }
+  }, 30000);
+}
   // Eventos
   controlButton.addEventListener('click', pausarOuContinuar);
   resetButton.addEventListener('click', resetarTimer);

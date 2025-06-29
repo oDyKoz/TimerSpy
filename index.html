@@ -14,7 +14,7 @@
 <body >
     <!-- Modal de Atualições -->
     <div class="modalUp" id="modalUp">
-        <div class="modalUp-content" id="bg-icons">
+        <div class="modalUp-content bg-all">
             <button class="bi bi-x-circle close" id="closeModalUp"></button>
                 <div class="Body-modalUp">
                     <h1>Painel de Upgrade</h1>
@@ -32,7 +32,7 @@
 
     <!-- Modal de configurações -->
     <div class="modal" id="myModal">
-        <div class="modal-content" id="bg-icons">
+        <div class="modal-content bg-all">
              <button class="bi bi-x-circle close" id="closeModal"></button>
                 <div class="scroll-container">
                     <div class="scroll-header">
@@ -41,11 +41,16 @@
                     <div class="scroll-content" id="scrollContent">
                         <div class="scroll-item">
                             <div class="Body-DarkMode">
-                                <h2>Dark Mode</h2>
+                                <label for="DarkMode">Habilite o Dark Mode:</label>
                                 <div class="Body-Buttons-DarkMode">
-                                    <button class="btn-toggle-light bi bi-brightness-alt-high-fill"></button>
-                                    <button class="btn-toggle-dark bi bi-moon-fill"></button>
+                                    <button class="btn-toggle-light bi bi-brightness-alt-high-fill" id="DarkMode"></button>
+                                    <button class="btn-toggle-dark bi bi-moon-fill" id="LightMode"></button>
                                 </div>
+                            </div>
+                            <div class="sound-config">
+                                <label for="customAlarmSound">Personalizar som do alarme:</label>
+                                <input type="url" id="customAlarmSound" placeholder="https://exemplo.com/som.mp3"> <br>
+                                <small>Deixe vazio para usar o som padrão</small>
                             </div>
                         </div>
                     </div>
@@ -59,14 +64,14 @@
 <div class="Body-Popups">
     <!-- Modal Upgrade -->
     <div class="upgrade" id="upgrade">
-        <div class="content-upgrade" id="bg-icons">
+        <div class="content-upgrade bg-all">
             <button id="openModalUp" class="bi bi-capslock-fill"></button>
             <p>Upgrade</p>
         </div>
     </div>
     <!-- Modal Config-->
     <div class="container-popup-color" >
-        <div class="content popup-color-buttom" id="bg-icons">
+        <div class="content popup-color-buttom bg-all">
             <button id="openModal" class="bi bi-gear-fill"></button>
             <p>Config</p>
         </div>
@@ -83,9 +88,9 @@
 
         <!-- Inputs para o timer -->
         <div class="inputs">
-            <input type="number" id="horas" placeholder="HH" oninput="limitarEntrada(this)" min="0" max="24">
-            <input type="number" id="minutos" placeholder="MM" oninput="limitarEntrada(this)" min="0" max="59">
-            <input type="number" id="segundos" placeholder="SS" oninput="limitarEntrada(this)" min="0" max="59">
+            <input type="number"  id="horas" placeholder="HH" oninput="limitarEntrada(this)" min="0" max="24">
+            <input type="number"  id="minutos" placeholder="MM" oninput="limitarEntrada(this)" min="0" max="59">
+            <input type="number"  id="segundos" placeholder="SS" oninput="limitarEntrada(this)" min="0" max="59">
         </div>
 
 
@@ -97,7 +102,9 @@
             </button>
 
             <!-- <button onclick='pausarOuContinuar()' class="bi bi-exclamation-octagon-fill"></button> -->
-            <button onclick="resetarTimer()" class="bi bi-arrow-repeat" id="resetButton"></button>
+            <button onclick="resetarTimer()" id="resetButton">
+                <i class="bi bi-arrow-repeat"></i>
+            </button>
         </div>
     </div>
 
