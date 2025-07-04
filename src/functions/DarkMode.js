@@ -51,7 +51,7 @@ export function DarkModeConfig() {
   // Pega os elementos HTML
   body = document.body;
   bgAll = document.querySelector('.bg-all'); // Adicionado ponto para classe
-  letters = document.querySelectorAll('p, i'); // Usando querySelectorAll com sintaxe correta
+  letters = document.querySelectorAll('h1, p, i, #timerDisplay'); // Usando querySelectorAll com sintaxe correta
   ModalStyle = document.querySelector('.modalStyle'); // Adicionado ponto para classe
   iconStyle = document.querySelector('.bi-gear-fill, .bi-capslock-fill');
   
@@ -73,7 +73,6 @@ export function DarkModeConfig() {
     letters.forEach(element => {
       element.style.color = '#fff';
     });
-
   }
 
   // Botão light clicado
@@ -91,6 +90,7 @@ export function DarkModeConfig() {
     letters.forEach(element => {
       element.style.color = ''; // Remove o estilo inline
     });
+
   }
 }
 

@@ -4,7 +4,7 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: "Roboto Mono", monospace;
+    font-family: "Roboto", monospace;
     border: 0;
 }
 
@@ -14,6 +14,16 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Regra Global */
+
+#divider {
+  display: flex;
+  background-color: #00000081;
+  padding-top: 0.5px;
+  margin: 8px 5px;
+}
+
+/* Principais Regras */
 .Body-Popups{
   display: flex;
   justify-content: space-between;
@@ -39,13 +49,13 @@ div.modalUp div.modalUp-content {
   border-radius: 5px;
   width: 90%; 
   max-width: 500px; 
-  background-color: rgba(179, 179, 179, 0.685);
+  background-color: rgb(214, 214, 214);
   box-shadow: 0 4px 8px rgba(112, 112, 112, 0.062); 
 }
 
 div.modalUp .bi-x-circle {
   cursor: pointer;
-  background-color: rgba(179, 179, 179, 0);
+  background-color: transparent;
   font-size: 25px;
 }
 
@@ -67,7 +77,6 @@ div.modalUp .bi-x-circle {
 
 /* Corpo do Modal Upgrade */
 .Body-modalUp {
-  background-color: var(--bg-main);
   padding: 15px;
   border-radius: 8px;
 }
@@ -126,6 +135,7 @@ div.modal {
 
 div.modal .bi-x-circle {
   display: flex;
+  max-width: 600px;
   pointer-events: visible;
   background-color: rgba(179, 179, 179, 0);
   font-size: 20px;
@@ -149,7 +159,6 @@ div.modal div.modal-content {
   align-content: center;
   align-items: center;
   font-size: 25px;
-  color: blueviolet;
   padding: 21vh;
   gap: 5px;
 }

@@ -2,11 +2,12 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" href="caminho/do/favicon.svg" type="image/svg+xml">
+    <link rel="icon" id="" href="src/svg/alarm_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" type="image/svg+xml">
     <link rel="preload" href="src/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <title>TimerSpy</title>
@@ -32,7 +33,7 @@
 
     <!-- Modal de configurações -->
     <div class="modal" id="myModal">
-        <div class="modal-content bg-all">
+        <div class="modal-content">
              <button class="bi bi-x-circle close" id="closeModal"></button>
                 <div class="scroll-container">
                     <div class="scroll-header">
@@ -40,6 +41,7 @@
                     </div>
                     <div class="scroll-content" id="scrollContent">
                         <div class="scroll-item">
+                            <div id="divider"></div>
                             <div class="Body-DarkMode">
                                 <label for="DarkMode">Habilite o Dark Mode:</label>
                                 <div class="Body-Buttons-DarkMode">
@@ -47,11 +49,19 @@
                                     <button class="btn-toggle-dark bi bi-moon-fill" id="LightMode"></button>
                                 </div>
                             </div>
+                            <div id="divider"></div>
                             <div class="sound-config">
-                                <label for="customAlarmSound">Personalizar som do alarme:</label>
+                                <label for="customAlarmSound">Personalizar som do alarme:</label> <br>
                                 <input type="url" id="customAlarmSound" placeholder="https://exemplo.com/som.mp3"> <br>
                                 <small>Deixe vazio para usar o som padrão</small>
                             </div>
+                            <div id="divider"></div>
+                            <div class="ColorChange" id="ColorChange">
+                                <label for="customColorLettersBody">Personalize a cor:</label> 
+                                <span class="bi bi-info-lg" id="information-ModalPage"></span> <br>
+                                <input type="color" name="customColorLettersBody" id="placeColor">
+                            </div>
+                            <div id="divider"></div>
                         </div>
                     </div>
 
@@ -77,7 +87,6 @@
         </div>
     </div>
 </div>
-
 
 
     <!-- Container do timer -->

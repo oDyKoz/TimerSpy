@@ -1,19 +1,9 @@
-/* Padrão */
-:root {
-    --empty-background: #ffffff00 ;
-    --bg-main: #fefdfb;
-    --color-letters: #000;
-    --bg-mainMD: #252525;
-    --color-letterMD: #fefdfb;
-    --color-iconsMD: #000;
-}
 /* Corpo do Card */
 .Body-DarkMode {
   padding: 10px;
   border-radius: 5px;
   margin: 10px 0px;
   background-color: #e0e0e08e;
-  color: var(--color-letters);
 }
 
 .Body-DarkMode h2 {
@@ -31,13 +21,12 @@
 button.btn-toggle-light{
     padding: 0px 6px;
     border-radius: 25px;
-    background-color: var(--bg-main);
 }
 
 .Body-DarkMode 
 button.btn-toggle-light{
-    padding: 0px 6px;
-    margin-bottom:2px ;
+    padding: 0px 5.5px;
+    margin-bottom: 0.8px;
     border-radius: 25px;
     background-color: none;
 }
@@ -48,7 +37,7 @@ button.btn-toggle-dark{
     color: #fefdfb;
     background-color: #000;
     margin-left: 41.5px;
-    padding: 5px 8px;
+    padding: 4px 8px;
     border-radius: 20px;
 }
 
@@ -89,4 +78,11 @@ button.btn-toggle-dark{
 @keyframes slideLeft {
   from { transform: translateX(-40px); }
   to { transform: translateX(0); }
+}
+
+@media (max-width: 605px) {
+  .Body-Buttons-DarkMode {
+    margin-right: 315px;
+} 
+  
 }

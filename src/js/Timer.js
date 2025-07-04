@@ -104,7 +104,8 @@ function notificarConclusao() {
     <div class="alarm-content">
       <i class="bi bi-alarm-fill"></i>
       <span>Timer finalizado!</span>
-      <button id="stopAlarmBtn">Parar</button>
+      <button id="stopAlarmBtn" style="background-color:#f55d5d; 
+      color: #fff; border-radius: 3px; padding: 4px;">Parar</button>
     </div>
   `;
   
