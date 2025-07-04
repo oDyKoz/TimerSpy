@@ -45,13 +45,15 @@ export let bgAll;
 export let body;
 export let botaoLight;
 export let botaoDark;
+export let iconStyle;
 
 export function DarkModeConfig() {
   // Pega os elementos HTML
   body = document.body;
   bgAll = document.querySelector('.bg-all'); // Adicionado ponto para classe
-  letters = document.querySelectorAll('h1, h2, h3, h4, p, span, i'); // Usando querySelectorAll com sintaxe correta
-  ModalStyle = document.querySelector('.modalUp'); // Adicionado ponto para classe
+  letters = document.querySelectorAll('p, i'); // Usando querySelectorAll com sintaxe correta
+  ModalStyle = document.querySelector('.modalStyle'); // Adicionado ponto para classe
+  iconStyle = document.querySelector('.bi-gear-fill, .bi-capslock-fill');
   
   // Pega os botões (corrigindo os seletores)
   botaoLight = document.querySelector('.btn-toggle-light');
@@ -65,15 +67,12 @@ export function DarkModeConfig() {
     // Aplica background dark
     body.style.background = '#252525';
     if (bgAll) bgAll.style.backgroundColor = '#252525';
-
-
-
-    
+    if (botaoDark) botaoLight.classList.add('slide-animation-right');
+  
     // Aplica estilo para todos os elementos de texto
     letters.forEach(element => {
-      element.style.color = '#fff'; // Muda a cor do texto, não o background
+      element.style.color = '#fff';
     });
-
 
   }
 
@@ -84,7 +83,10 @@ export function DarkModeConfig() {
     
     // Aplica tema light
     body.style.background = '#fefdfb';
-    
+    if (botaoLight) botaoDark.classList.add('slide-animation-left');
+
+
+
     // Volta cor original do texto
     letters.forEach(element => {
       element.style.color = ''; // Remove o estilo inline

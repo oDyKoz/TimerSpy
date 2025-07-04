@@ -1,7 +1,3 @@
-/* Dark Mode CSS*/
-
-/* Variaveis da Troca */
-
 /* Padrão */
 :root {
     --empty-background: #ffffff00 ;
@@ -11,12 +7,6 @@
     --color-letterMD: #fefdfb;
     --color-iconsMD: #000;
 }
-
-button.btn-toggle-light,
-button.Body-Buttons-DarkMode {
-    transition: .9s;
-}
-
 /* Corpo do Card */
 .Body-DarkMode {
   padding: 10px;
@@ -38,14 +28,7 @@ button.Body-Buttons-DarkMode {
 /* Estilização do Botão */
 
 .Body-DarkMode 
-button{
-    cursor: pointer;
-    background-color: var(--empty-background);
-}
-
-.Body-DarkMode 
 button.btn-toggle-light{
-    display: inline;
     padding: 0px 6px;
     border-radius: 25px;
     background-color: var(--bg-main);
@@ -64,15 +47,15 @@ button.btn-toggle-dark{
     display: none;
     color: #fefdfb;
     background-color: #000;
+    margin-left: 41.5px;
     padding: 5px 8px;
-    margin-left: 40px;
     border-radius: 20px;
 }
 
 .Body-Buttons-DarkMode {
     background-color: grey;
     border-radius: 30px;
-    padding-left: 3px 3px;
+    margin: 1.5px;
     margin-right: 365px;
 } 
 
@@ -82,4 +65,28 @@ button.btn-toggle-dark{
 
 .btn-toggle-dark {
     font-size: 15px;
+}
+
+/* Animações */
+
+
+
+.slide-animation-right {
+  transform: translateX(0);
+  animation: slideRight 0.4s ease-out;
+}
+
+@keyframes slideRight {
+  from { transform: translateX(40px); }
+  to { transform: translateX(0); }
+}
+
+.slide-animation-left {
+  transform: translateX(0);
+  animation: slideLeft 0.4s ease-out;
+}
+
+@keyframes slideLeft {
+  from { transform: translateX(-40px); }
+  to { transform: translateX(0); }
 }

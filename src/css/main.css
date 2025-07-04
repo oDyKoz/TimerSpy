@@ -1,4 +1,5 @@
 @import "bootstrap-icons/font/bootstrap-icons.css";
+@import "functions/Darkmode.css";
 
 * {
     padding: 0;
@@ -8,6 +9,7 @@
 }
 
 body {
+    background-color: #EDEDED;
     min-height: 100vh;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -42,14 +44,14 @@ div.modalUp div.modalUp-content {
 }
 
 div.modalUp .bi-x-circle {
-  pointer-events: visible;
+  cursor: pointer;
   background-color: rgba(179, 179, 179, 0);
   font-size: 25px;
 }
 
 .upgrade .content-upgrade button {
-  pointer-events: visible;
-  background-color: var(--bg-main);
+  cursor: pointer;
+  background-color: transparent;
   font-size: 5vh;
 }
 .upgrade .content-upgrade {
@@ -99,8 +101,8 @@ div.modalUp .bi-x-circle {
 
 /* Conteúdo do Pop up */
 .container-popup-color .content button {
-  pointer-events: visible;
-  background-color: var(--bg-main);
+  cursor: pointer;
+  background-color: transparent;
   font-size: 5vh;
 }
 .container-popup-color .content {
@@ -194,7 +196,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
   .Body-Popups .upgrade .bi,
   .Body-Popups .container-popup-color .bi{
-    font-size: 15px;
+    font-size: 25px;
 
     p {
       font-size: smaller;
