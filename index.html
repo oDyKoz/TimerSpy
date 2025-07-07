@@ -15,7 +15,7 @@
 <body >
     <!-- Modal de Atualições -->
     <div class="modalUp" id="modalUp">
-        <div class="modalUp-content bg-all">
+        <div class="modalUp-content">
             <button class="bi bi-x-circle close" id="closeModalUp"></button>
                 <div class="Body-modalUp">
                     <h1>Painel de Upgrade</h1>
@@ -32,7 +32,7 @@
     </div>
 
     <!-- Modal de configurações -->
-    <div class="modal" id="myModal">
+    <div class="modal modalStyle" id="myModal">
         <div class="modal-content">
              <button class="bi bi-x-circle close" id="closeModal"></button>
                 <div class="scroll-container">
@@ -42,7 +42,7 @@
                     <div class="scroll-content" id="scrollContent">
                         <div class="scroll-item">
                             <div id="divider"></div>
-                            <div class="Body-DarkMode">
+                            <div class="Body-DarkMode Card">
                                 <label for="DarkMode">Habilite o Dark Mode:</label>
                                 <div class="Body-Buttons-DarkMode">
                                     <button class="btn-toggle-light bi bi-brightness-alt-high-fill " id="DarkMode"></button>
@@ -50,13 +50,13 @@
                                 </div>
                             </div>
                             <div id="divider"></div>
-                            <div class="sound-config">
+                            <div class="sound-config Card">
                                 <label for="customAlarmSound">Personalizar som do alarme:</label> <br>
                                 <input type="url" id="customAlarmSound" placeholder="https://exemplo.com/som.mp3"> <br>
                                 <small>Deixe vazio para usar o som padrão</small>
                             </div>
                             <div id="divider"></div>
-                            <div class="ColorChange" id="ColorChange">
+                            <div class="ColorChange Card" id="ColorChange">
                                 <label for="customColorLettersBody">Personalize a cor:</label> 
                                 <span class="bi bi-info-lg" id="information-ModalPage"></span> <br>
                                 <input type="color" name="customColorLettersBody" id="placeColor">
@@ -75,15 +75,15 @@
     <!-- Modal Upgrade -->
     <div class="upgrade" id="upgrade">
         <div class="content-upgrade bg-all">
-            <button id="openModalUp" class="bi bi-capslock-fill"></button>
-            <p>Upgrade</p>
+            <button id="openModalUp" class="bi bi-capslock-fill C-ColorAll"></button>
+            <p id="ColorAll">Upgrade</p>
         </div>
     </div>
     <!-- Modal Config-->
     <div class="container-popup-color" >
         <div class="content popup-color-buttom bg-all">
-            <button id="openModal" class="bi bi-gear-wide-connected"></button>
-            <p>Config</p>
+            <button id="openModal" class="bi bi-gear-wide-connected C-ColorAll"></button>
+            <p id="ColorAll">Config</p>
         </div>
     </div>
 </div>
@@ -91,7 +91,7 @@
 
     <!-- Container do timer -->
     <div class="container-count">
-        <div id="timerDisplay">
+        <div id="timerDisplay" class="C-ColorAll">
             00:00:00
         </div>
 
@@ -107,12 +107,12 @@
         <!-- Botões de controle -->
         <div class="controls">
             <button onclick="iniciarTimer()" id="controlButton">
-            <i class="bi bi-caret-right-fill"></i>
+            <i class="bi bi-caret-right-fill C-ColorAll"></i>
             </button>
 
             <!-- <button onclick='pausarOuContinuar()' class="bi bi-exclamation-octagon-fill"></button> -->
             <button onclick="resetarTimer()" id="resetButton">
-                <i class="bi bi-arrow-repeat"></i>
+                <i class="bi bi-arrow-repeat C-ColorAll"></i>
             </button>
         </div>
     </div>

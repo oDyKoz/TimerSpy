@@ -1,5 +1,6 @@
 @import "bootstrap-icons/font/bootstrap-icons.css";
-@import "functions/Darkmode.css";
+@import "functions/modal.css";
+
 
 * {
     padding: 0;
@@ -30,123 +31,10 @@ body {
   position: relative;
 }
 
-/* Modal Pomodoro*/
-div.modalUp {
-  display: none;
-  position: fixed; 
-  z-index: 1000; 
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.562); 
-  justify-content: center; 
-  align-items: center; 
-}
-
-div.modalUp div.modalUp-content {
+.modalStyle {
   padding: 20px;
-  border-radius: 5px;
-  width: 90%; 
-  max-width: 500px; 
-  background-color: rgb(214, 214, 214);
-  box-shadow: 0 4px 8px rgba(112, 112, 112, 0.062); 
-}
-
-div.modalUp .bi-x-circle {
-  cursor: pointer;
-  background-color: transparent;
-  font-size: 25px;
-}
-
-.upgrade .content-upgrade button {
-  cursor: pointer;
-  background-color: transparent;
-  font-size: 5vh;
-}
-.upgrade .content-upgrade {
-  display: flex;
-  flex-direction: column;
-  padding: 6px;
-}
-
-.upgrade .content-upgrade p {
-  font-size: small;
-
-}
-
-/* Corpo do Modal Upgrade */
-.Body-modalUp {
-  padding: 15px;
   border-radius: 8px;
-}
-
-
-.Body-modalUp .Body-modalUp-Content {
-  background-color: rgb(216, 216, 216);
-  padding: 15px;
-  margin-top: 10px;
-  border-radius: 8px;
-  i {
-    color: aliceblue;
-    background-color: red;
-    padding: 2px 8px;
-    border-radius: 5px;
-  }
-}
-
-/* Pop-up */
-.container-popup-color {
-  display: flex;
-  align-items: end;
-  justify-content: end;
-  position: relative;
-}
-
-.container-popup-color p {
-  font-size: small;
-
-}
-
-/* Conteúdo do Pop up */
-.container-popup-color .content button {
-  cursor: pointer;
-  background-color: transparent;
-  font-size: 5vh;
-}
-.container-popup-color .content {
-  display: flex;
-  flex-direction: column;
-  padding: 6px;
-}
-
-div.modal {
-  display: none;
-  position: fixed; 
-  z-index: 1000; 
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.116); 
-  justify-content: center; 
-  align-items: center; 
-}
-
-div.modal .bi-x-circle {
-  display: flex;
-  max-width: 600px;
-  pointer-events: visible;
-  background-color: rgba(179, 179, 179, 0);
-  font-size: 20px;
-}
-
-div.modal div.modal-content {
-  padding: 20px;
-  border-radius: 5px;
-  width: 90%; 
-  max-width: 500px; 
-  box-shadow: 0 4px 8px rgba(112, 112, 112, 0.2); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 
