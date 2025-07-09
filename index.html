@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" href="caminho/do/favicon.svg" type="image/svg+xml">
-    <link rel="icon" id="" href="src/svg/alarm_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" type="image/svg+xml">
-    <link rel="preload" href="src/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="src/svg/alarm_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" type="image/svg+xml" />
+
+    <link rel="preload" href="src/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" />
+
     <title>TimerSpy</title>
 </head>
 <body >
@@ -31,6 +34,8 @@
         </div>
     </div>
 
+    <!-- Modal Configuração Pomodoro -->
+
     <!-- Modal de configurações -->
     <div class="modal modalStyle" id="myModal">
         <div class="modal-content">
@@ -38,6 +43,7 @@
                 <div class="scroll-container">
                     <div class="scroll-header">
                         <h1>Configurações</h1>
+                        <p> Clique nos <i class="bi bi-info-lg"></i> para mais informações das funcionalidades.</p>
                     </div>
                     <div class="scroll-content" id="scrollContent">
                         <div class="scroll-item">
@@ -49,6 +55,15 @@
                                     <button class="btn-toggle-dark bi bi-moon-fill" id="LightMode"></button>
                                 </div>
                             </div>
+                            <div id="divider"></div>
+                                <div class="BodyConfigPomodoro Card">
+                                    Habilite a opção Pomodoro 
+                                    <button class="bi bi-info-lg" id="tooltipWrapper" type="button" aria-label="Informações sobre Pomodoro"></button> <br>
+                                    <div class="opcoesPomo">
+                                        <button id="activatePomo">Ativar</button>
+                                        <button id="disablePomo">Desativar</button>
+                                    </div>
+                                </div>
                             <div id="divider"></div>
                             <div class="sound-config Card">
                                 <label for="customAlarmSound">Personalizar som do alarme:</label> <br>
@@ -69,7 +84,16 @@
                 </div>
             <span>Desenvolvedor <a href="https://github.com/oDyKoz" target="_blank">oDyKoz</a></span>
         </div>
+        <div class="hoverToType" id="hoverToTypePomo">
+            <div class="tooltip" id="tooltipInfo">
+            <p>Informações sobre o modo Pomodoro. <br>
+            <i>EM BREVE</i></p>
+            </div>
+        </div>
     </div>
+    
+        
+
 
 <div class="Body-Popups">
     <!-- Modal Upgrade -->
@@ -121,8 +145,8 @@
 
     <!-- Scripts -->
     <script src="src/js/Timer.js" defer></script>
-    <script type="module" src="src/js/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="src/js/main.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
 
 </body>
 </html>

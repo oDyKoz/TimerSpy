@@ -37,7 +37,43 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.scroll-content {
+  max-height: 300px;
+  overflow-y: auto;
 
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #5e5e5e #e0e0e0;
+}
+
+
+.hoverToType {
+  position: absolute;
+  text-align: start;
+  transform: translateX(120px);
+  display: none;
+  max-width: 200px;
+}
+
+.bi-info-lg {
+  cursor: pointer;
+}
+
+
+.tooltip {
+  position: relative;
+  padding: 0px 5px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  text-align: start;
+  opacity: 0;
+  z-index: 9999;
+}
+
+.hoverToType .tooltip{
+  visibility: visible;
+  opacity: 1;
+}
 
 /* Timer display */
 
@@ -75,6 +111,9 @@ body {
   margin: 0 5px;
 }
 
+
+
+
 /* Chrome, Safari, Edge */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
@@ -85,7 +124,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 
 /* Responsividade */
-@media (max-width: 605px) {
+@media (max-width: 620px) {
   .Body-Popups {
     justify-content: flex-end;
     gap: 0;
@@ -112,11 +151,12 @@ input[type="number"]::-webkit-inner-spin-button {
     width: 150cm;
     max-width: 885px ;
   }
+
 }
 
-@media (max-width: 550px) {
-  div.modalUp div.modalUp-content button{
-    width: 15cm;
-    max-width: 885px ;
+@media (max-width: 835px) {
+   .hoverTooltip:hover .info-hover{
+    left: 0;
+    opacity: 1;
   }
 }
