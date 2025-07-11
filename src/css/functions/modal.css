@@ -184,15 +184,54 @@ button.btn-toggle-dark{
   font-size: small;
 }
 
-#activatePomo {
+#disablePomo {
   border-radius: 5px;
   padding: 5px;
   background: #81818180;
 }
 
-#disablePomo {
+#activatePomo {
   border-radius: 5px;
   padding: 5px;
+}
+
+#sidebarPomo {
+  position: fixed;
+  top: 0;
+  right: 0;
+  border-radius: 15px 0px 0px 15px;
+  height: 8%;
+  padding: 9px 0px 0px 10px;
+  background-color: #bbbbbb;
+  justify-content: end;
+  transition: width 0.3s ease;
+  display: flex;
+  transform: translateY(90px);
+  align-items: flex-start;
+  button, i {
+    background-color: #bbbbbb;
+    font-size: 22px;
+  }
+  span {
+    background-color: #dddddd;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 15px;
+  }
+}
+#sidebarPomoContent {
+  display: inline;
+  background-color: #bbbbbb;
+  padding: 0px 10px 10px 10px;
+  border-radius: 0px 0px 0px 10px;
+  max-width: 300px;
+}
+
+#minutosPomo,
+#LoopPomo,
+#StopPomo {
+  background-color: #dddddd;
+  margin: 2px;
 }
 
 /* Animações */

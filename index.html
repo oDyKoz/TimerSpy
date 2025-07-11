@@ -138,10 +138,34 @@
             <button onclick="resetarTimer()" id="resetButton">
                 <i class="bi bi-arrow-repeat C-ColorAll"></i>
             </button>
+
+            <button>
+                <i></i>
+            </button>
         </div>
     </div>
 
 
+    <!-- Sidebar One Expansivel -->
+    <div id="sidebarPomo">
+        <button id="btnOpenClose">
+            <i class="bi bi-box-arrow-in-left"></i>
+        </button>
+        <div id="sidebarPomoContent">
+            <h2>Configuração Pomodoro</h2>
+            <p>Personalize o tempo no seu jeito!</p>
+            <div id="sidebarPomoConfig">
+                <input type="number" placeholder="MM" id="minutosPomo">
+                <input type="number" placeholder="Loop" id="LoopPomo">
+                <input type="number" placeholder="Pausas" id="StopPomo">
+            </div>
+            <div id="sidebarPomoSave">
+                <button>
+                    <span class="bi bi-save-fill"> Salvar</span>
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script src="src/js/Timer.js" defer></script>

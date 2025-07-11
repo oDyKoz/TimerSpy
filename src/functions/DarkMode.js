@@ -51,7 +51,7 @@ export function DarkModeConfig() {
   }
 
   // Botão dark clicado
-  botaoLight.onclick = function ModoDark() {
+  botaoLight.onclick = function() {
     botaoLight.style.display = "none";
     botaoDark.style.display = "inline";
 
