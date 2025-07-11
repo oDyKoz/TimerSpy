@@ -200,8 +200,9 @@ button.btn-toggle-dark{
   top: 0;
   right: 0;
   border-radius: 15px 0px 0px 15px;
-  height: 8%;
+  height: 50px;
   padding: 9px 0px 0px 10px;
+  max-height: 0px 0px 0px 10px;
   background-color: #bbbbbb;
   justify-content: end;
   transition: width 0.3s ease;
@@ -259,6 +260,10 @@ button.btn-toggle-dark{
 @media (max-width: 605px) {
   .Body-Buttons-DarkMode {
     max-width: 73px;
-} 
+  } 
   
+  #sidebarPomo {
+    
+  }
+
 }
