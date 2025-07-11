@@ -220,8 +220,8 @@ button.btn-toggle-dark{
     font-size: 15px;
   }
 }
+
 #sidebarPomoContent {
-  display: inline;
   background-color: #bbbbbb;
   padding: 0px 10px 10px 10px;
   border-radius: 0px 0px 0px 10px;
@@ -231,8 +231,10 @@ button.btn-toggle-dark{
 #minutosPomo,
 #LoopPomo,
 #StopPomo {
-  background-color: #dddddd;
+  background-image: linear-gradient(to top, #bbb, #d4d4d4);
   margin: 2px;
+  width: 65px;
+  max-width: 70px;
 }
 
 /* Animações */
@@ -242,8 +244,13 @@ button.btn-toggle-dark{
   animation: slideRight 0.4s ease-out;
 }
 
+.slideAnimationRightPomo {
+  transform: translateX(0);
+  animation: slideRight 0.4s ease-out;
+}
+
 @keyframes slideRight {
-  from { transform: translateX(40px); }
+  from { transform: translateX(40px);}
   to { transform: translateX(0); }
 }
 
@@ -252,8 +259,13 @@ button.btn-toggle-dark{
   animation: slideLeft 0.4s ease-out;
 }
 
+.slideAnimationLeftPomo{
+  transform: translateX(0);
+  animation: slideLeft 0.4s ease-out;
+}
+
 @keyframes slideLeft {
-  from { transform: translateX(-40px); }
+  from { transform: translateX(-40px);}
   to { transform: translateX(0); }
 }
 
@@ -262,8 +274,5 @@ button.btn-toggle-dark{
     max-width: 73px;
   } 
   
-  #sidebarPomo {
-    
-  }
 
 }

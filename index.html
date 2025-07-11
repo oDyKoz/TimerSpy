@@ -97,7 +97,7 @@
 
 <div class="Body-Popups">
     <!-- Modal Upgrade -->
-    <div class="upgrade" id="upgrade">
+    <div class="upgrade" id="upgrade" style="display: none;">
         <div class="content-upgrade bg-all">
             <button id="openModalUp" class="bi bi-capslock-fill C-ColorAll"></button>
             <p id="ColorAll">Upgrade</p>
@@ -121,9 +121,12 @@
 
         <!-- Inputs para o timer -->
         <div class="inputs">
-            <input type="number"  id="horas" placeholder="HH" oninput="limitarEntrada(this)" min="0" max="24">
-            <input type="number"  id="minutos" placeholder="MM" oninput="limitarEntrada(this)" min="0" max="59">
-            <input type="number"  id="segundos" placeholder="SS" oninput="limitarEntrada(this)" min="0" max="59">
+            <label for="hours"></label>
+            <input type="number" id="horas" placeholder="HH" min="0" max="23">
+            <label for="minutes"></label>
+            <input type="number" id="minutos" placeholder="MM" min="0" max="59">
+            <label for="seconds"></label>
+            <input type="number" id="segundos" placeholder="SS" min="0" max="59">
         </div>
 
 
@@ -138,10 +141,6 @@
             <button onclick="resetarTimer()" id="resetButton">
                 <i class="bi bi-arrow-repeat C-ColorAll"></i>
             </button>
-
-            <button>
-                <i></i>
-            </button>
         </div>
     </div>
 
@@ -149,10 +148,10 @@
     <!-- Sidebar One Expansivel -->
     <div id="sidebarPomo">
         <button id="btnOpenClose">
-            <i class="bi bi-box-arrow-in-left"></i>
+            <i class="bi bi-box-arrow-in-left" id="iconLeftPomo"></i>
         </button>
         <div id="sidebarPomoContent">
-            <h2>Configuração Pomodoro</h2>
+            <h3>Configuração Pomo</h3>
             <p>Personalize o tempo no seu jeito!</p>
             <div id="sidebarPomoConfig">
                 <input type="number" placeholder="MM" id="minutosPomo">

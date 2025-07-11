@@ -20,7 +20,7 @@ export function ConfigModal() {
             myModal.style.display = "none"; // Esconde o modal
         }
     }
-}
+};
 
 // Aguarde o carregamento do DOM
 document.addEventListener("DOMContentLoaded", function() {
