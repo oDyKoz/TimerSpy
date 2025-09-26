@@ -4,3 +4,6 @@ exemple.index.html
 .vscode
 package-lock.json
 package.json
+.dockerignore
+docker-compose.yml
+Dockerfile

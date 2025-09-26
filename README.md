@@ -11,6 +11,7 @@ simples uso e fácil acesso, com layout simples e fácil de entender.
 - [Linguagens](#linguagens)
 - [Instalação](#download)
 - [Ferramentas/Bibliotecas](#ferramentasbibliotecas)
+- [BaseDeConhecimento](#base-de-conhecimento)
 - ["Espiadinha"](#espiadinha)
 
   
@@ -28,6 +29,13 @@ simples uso e fácil acesso, com layout simples e fácil de entender.
    ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
   ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
   ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+
+### Base de Conhecimento
+
+Para facilitar na busca das dúvidas, creie uma documentação nomeada como "Base de Conhecimento", onde terá explicações da plataforma.
+
+Segue com o link: [Base-De-Conhecimento](https://docs.google.com/document/d/10X7UbAitMSftVkc-XETh0Qp5RnOwMsVaPnYoSbQGpBQ/edit?usp=sharing)
+
 ### Ferramentas/Bibliotecas
 
 | Biblioteca  | Descrição   | 
