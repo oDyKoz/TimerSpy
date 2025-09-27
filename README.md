@@ -20,8 +20,8 @@ simples uso e fácil acesso, com layout simples e fácil de entender.
 
 - [x] Dark Mode
 - [ ] Métoddo Pomodoro
-- [ ] ~~ Page Upgrade via API - Utilizar API simples para enviar informações para Page Upgrade (Página de atualizações) e o Page Count (Página do Cronômetro). ~~
-- [ ] ~~ API Google Tasks e Google Keep - Utilizar via API Rest para marcar atividades feitas e realizar anotações internas. ~~
+- [ ] ~~Page Upgrade via API - Utilizar API simples para enviar informações para Page Upgrade (Página de atualizações) e o Page Count (Página do Cronômetro).~~
+- [ ] ~~API Google Tasks e Google Keep - Utilizar via API Rest para marcar atividades feitas e realizar anotações internas.~~
 Irei aplicar APIs em outro projeto, neste irei focar nos estudos com JS.
 - [ ] Exportação via Excel - Logs recentes sobre o tempo estudado e quais atividade foram feita a cada tempo.
 
