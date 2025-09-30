@@ -1,7 +1,7 @@
 /**
- * Timer Modular - Classe reutilizável para contadores regressivos
+ * Timer Modular com Validação de Entrada
  * @author oDyKoz
- * @version 1.0.0
+ * @version 2.0.0
  */
 
 class Timer {
@@ -61,6 +61,7 @@ class Timer {
   init() {
     this.cacheElements();
     this.bindEvents();
+    this.setupInputValidation();
     this.atualizarDisplay(0);
   }
 
@@ -103,6 +104,109 @@ class Timer {
   }
 
   /**
+   * Configura a validação dos inputs
+   */
+  setupInputValidation() {
+    const inputs = [
+      { element: this.elements.horasInput, type: 'hours' },
+      { element: this.elements.minutosInput, type: 'minutes' },
+      { element: this.elements.segundosInput, type: 'seconds' }
+    ];
+
+    inputs.forEach(({ element, type }) => {
+      if (!element) return;
+
+      // Validação no blur (quando sai do campo)
+      element.addEventListener('blur', () => this.limitarEntrada(element, type));
+
+      // Validação ao pressionar Enter
+      element.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          this.limitarEntrada(element, type);
+        }
+      });
+
+      // Limita entrada em tempo real
+      element.addEventListener('input', () => {
+        // Limita a 2 caracteres
+        if (element.value.length > 2) {
+          element.value = element.value.slice(0, 2);
+        }
+        // Remove caracteres não-numéricos
+        element.value = element.value.replace(/\D/g, '');
+      });
+
+      // Impede colagem de texto inválido
+      element.addEventListener('paste', (e) => {
+        const pastedData = (e.clipboardData || window.clipboardData).getData('text');
+        if (!/^\d*$/.test(pastedData) || pastedData.length > 2) {
+          e.preventDefault();
+          console.debug(`Colagem inválida bloqueada em ${type}`);
+        }
+      });
+    });
+  }
+
+  /**
+   * Limita a entrada de acordo com o tipo de campo
+   */
+  limitarEntrada(input, type) {
+    const cursorPos = input.selectionStart;
+    let valor = input.value.trim();
+
+    // Limita a 2 caracteres
+    if (valor.length > 2) {
+      valor = valor.slice(0, 2);
+    }
+
+    // Define valor máximo baseado no tipo
+    let maxValue;
+    switch (type) {
+      case 'hours':
+        maxValue = 23;
+        break;
+      case 'minutes':
+      case 'seconds':
+        maxValue = 59;
+        break;
+      default:
+        console.error(`Tipo de campo inválido: ${type}`);
+        return;
+    }
+
+    // Valida a entrada
+    if (valor.length > 0) {
+      if (!/^\d*$/.test(valor)) {
+        input.value = '';
+        console.warn(`Entrada não numérica em ${type}: ${valor}`);
+        return;
+      }
+
+      const numero = parseInt(valor, 10);
+      if (!isNaN(numero)) {
+        if (numero > maxValue) {
+          // Corrige para o valor máximo
+          const formattedValue = maxValue.toString().padStart(2, '0');
+          input.value = formattedValue;
+          const newCursorPos = cursorPos + (formattedValue.length - valor.length);
+          input.setSelectionRange(newCursorPos, newCursorPos);
+          console.debug(`Valor ajustado para o máximo em ${type}: ${maxValue}`);
+        } else if (numero >= 0) {
+          input.value = valor;
+        } else {
+          input.value = '';
+          console.warn(`Valor inválido em ${type}: ${valor}`);
+        }
+      } else {
+        input.value = '';
+        console.warn(`Entrada não numérica em ${type}: ${valor}`);
+      }
+    } else {
+      input.value = '';
+    }
+  }
+
+  /**
    * Manipula eventos de teclado
    */
   handleKeyboard(event) {
@@ -135,7 +239,6 @@ class Timer {
     this.rodarContagem();
     this.atualizarBotao();
     
-    // Callback personalizado
     if (typeof this.config.onStart === 'function') {
       this.config.onStart(tempo);
     }
@@ -170,7 +273,6 @@ class Timer {
         this.tempoRestante--;
         this.atualizarDisplay(this.tempoRestante);
 
-        // Callback de tick
         if (typeof this.config.onTick === 'function') {
           this.config.onTick(this.tempoRestante, this.formatarTempo(this.tempoRestante));
         }
@@ -194,7 +296,6 @@ class Timer {
       this.pausado = !this.pausado;
       this.atualizarBotao();
 
-      // Callback personalizado
       const callback = this.pausado ? this.config.onPause : this.config.onStart;
       if (typeof callback === 'function') {
         callback(this.formatarTempo(this.tempoRestante));
@@ -213,7 +314,6 @@ class Timer {
     this.atualizarDisplay(0);
     this.resetarBotao();
 
-    // Callback personalizado
     if (typeof this.config.onReset === 'function') {
       this.config.onReset();
     }
@@ -227,7 +327,6 @@ class Timer {
     this.isRunning = false;
     this.notificarConclusao();
 
-    // Callback personalizado
     if (typeof this.config.onComplete === 'function') {
       this.config.onComplete();
     }
@@ -307,19 +406,15 @@ class Timer {
     const alarmSound = new Audio(customSoundUrl || this.config.defaultAlarmSound);
     alarmSound.loop = true;
 
-    // Criar notificação visual
     const notification = this.criarNotificacaoVisual(alarmSound);
     document.body.appendChild(notification);
 
-    // Tocar áudio com fallback
     this.tocarAudio(alarmSound);
 
-    // Notificação do navegador
     if (this.config.enableNotifications) {
       this.criarNotificacaoNavegador();
     }
 
-    // Auto-remover notificação
     if (this.config.autoRemoveNotification) {
       this.autoRemoverNotificacao(notification, alarmSound);
     }
@@ -342,7 +437,6 @@ class Timer {
     
     this.aplicarEstilosNotificacao(notification);
     
-    // Evento do botão parar
     notification.querySelector('#stopAlarmBtn').addEventListener('click', () => {
       this.pararAlarme(alarmSound, notification);
     });
@@ -378,7 +472,6 @@ class Timer {
   tocarAudio(alarmSound) {
     alarmSound.play().catch(error => {
       console.error('Erro ao tocar áudio personalizado:', error);
-      // Fallback para áudio padrão
       const defaultSound = new Audio(this.config.defaultAlarmSound);
       defaultSound.loop = true;
       defaultSound.play().catch(fallbackError => {
@@ -466,33 +559,27 @@ class Timer {
    */
   destroy() {
     this.clearInterval();
-    // Remove listeners se necessário
-    // Limpa referências
     this.elements = {};
   }
 }
 
-// Função de inicialização para compatibilidade com o código original
+// Função de inicialização para compatibilidade
 function initTimer(config = {}) {
   return new Timer(config);
 }
 
 // Exportações para diferentes sistemas de módulos
 if (typeof module !== 'undefined' && module.exports) {
-  // CommonJS
   module.exports = { Timer, initTimer };
 } else if (typeof define === 'function' && define.amd) {
-  // AMD
   define(() => ({ Timer, initTimer }));
 } else {
-  // Global
   window.Timer = Timer;
   window.initTimer = initTimer;
 }
 
-// Inicialização automática quando o DOM estiver pronto (compatibilidade)
+// Inicialização automática quando o DOM estiver pronto
 document.addEventListener('DOMContentLoaded', () => {
-  // Inicializa apenas se não foi explicitamente desabilitado
   if (!window.DISABLE_AUTO_TIMER_INIT) {
     window.timerInstance = new Timer();
   }
