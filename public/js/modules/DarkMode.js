@@ -15,11 +15,11 @@ const colors = {
     cardBackground: '#252525'
   },
   light: {
-    background: '#fefdfb',
+    background: '#ffffffff',
     text: '#000',
     modalBackground: '#fff',
     modalText: '#000',
-    cardBackground: '#eeeeee'
+    cardBackground: '#ffffffff'
   }
 };
 
