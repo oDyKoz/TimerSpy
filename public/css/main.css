@@ -46,6 +46,17 @@ body {
   scrollbar-color: #5e5e5e #e0e0e0;
 }
 
+#NovaFerramenta {
+  display: flex;
+  position: initial;
+  color: #001aff;
+  font-size: small;
+  background-color: rgb(181, 192, 253);
+  max-width: 8.8%;
+  border-radius: 10px;
+  left: 85%;
+  padding: 2px 5px;
+}
 
 .hoverToType {
   position: absolute;

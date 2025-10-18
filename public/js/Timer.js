@@ -47,6 +47,8 @@ class Timer {
     this.tempoRestante = 0;
     this.pausado = false;
     this.isRunning = false;
+    this.elements = {};
+    this.audioManager = window.customAudioManager || null;
 
     // Cache dos elementos DOM
     this.elements = {};
@@ -402,14 +404,15 @@ class Timer {
    * Notifica a conclusão do timer
    */
   notificarConclusao() {
-    const customSoundUrl = this.elements.customSoundInput?.value.trim();
-    const alarmSound = new Audio(customSoundUrl || this.config.defaultAlarmSound);
+    const audioUrl = this.getAudioUrl();
+  
+    const alarmSound = new Audio(audioUrl);
     alarmSound.loop = true;
 
     const notification = this.criarNotificacaoVisual(alarmSound);
     document.body.appendChild(notification);
 
-    this.tocarAudio(alarmSound);
+    this.tocarAudioComFallback(alarmSound);
 
     if (this.config.enableNotifications) {
       this.criarNotificacaoNavegador();
@@ -418,7 +421,98 @@ class Timer {
     if (this.config.autoRemoveNotification) {
       this.autoRemoverNotificacao(notification, alarmSound);
     }
+    }
+
+    /**
+ * Obtém a URL do áudio (personalizado ou padrão)
+ */
+getAudioUrl() {
+  // Prioridade 1: Audio Manager
+  if (this.audioManager) {
+    const url = this.audioManager.getAudioUrl();
+    if (url) return url;
   }
+
+  // Prioridade 2: Input customizado
+  const customInput = this.elements.customSoundInput?.value.trim();
+  if (customInput) return customInput;
+
+  // Prioridade 3: Áudio padrão
+  return this.config.defaultAlarmSound;
+}
+
+/**
+ * Toca o áudio com fallback automático
+ */
+tocarAudioComFallback(alarmSound) {
+  const playPromise = alarmSound.play();
+
+  if (playPromise !== undefined) {
+    playPromise
+      .then(() => {
+        console.log('✅ Áudio tocando:', alarmSound.src);
+      })
+      .catch(error => {
+        console.warn('⚠️ Erro ao tocar áudio personalizado:', error);
+        this.usarAudioPadrao();
+      });
+  }
+}
+
+/**
+ * Usa o áudio padrão como fallback
+ */
+usarAudioPadrao() {
+  console.log('🔄 Usando áudio padrão como fallback');
+  
+  const defaultSound = new Audio(this.config.defaultAlarmSound);
+  defaultSound.loop = true;
+  
+  defaultSound.play()
+    .then(() => {
+      console.log('✅ Áudio padrão tocando');
+    })
+    .catch(fallbackError => {
+      console.error('❌ Erro crítico: não foi possível tocar nenhum áudio', fallbackError);
+      alert('Não foi possível reproduzir o alarme. Verifique as permissões do navegador.');
+    });
+}
+
+/**
+ * Testa o áudio personalizado antes de usar
+ */
+async testarAudioPersonalizado() {
+  if (!this.audioManager) {
+    console.warn('Audio Manager não disponível');
+    return false;
+  }
+
+  const status = this.audioManager.getStatus();
+  
+  if (!status.hasCustomAudio) {
+    console.log('ℹ️ Usando áudio padrão');
+    return true;
+  }
+
+  console.log('🎵 Status do áudio:', status);
+  return status.isValid;
+}
+
+/**
+ * Obtém informações sobre o áudio atual
+ */
+getAudioInfo() {
+  const url = this.getAudioUrl();
+  const isCustom = this.audioManager?.getStatus().hasCustomAudio || false;
+  
+  return {
+    url: url,
+    isCustom: isCustom,
+    isDefault: !isCustom,
+    source: isCustom ? 'personalizado' : 'padrão'
+  };
+}
+
 
   /**
    * Cria a notificação visual
@@ -542,7 +636,8 @@ class Timer {
       tempoRestante: this.tempoRestante,
       pausado: this.pausado,
       isRunning: this.isRunning,
-      tempoFormatado: this.formatarTempo(this.tempoRestante)
+      tempoFormatado: this.formatarTempo(this.tempoRestante),
+      audioInfo: this.getAudioInfo()
     };
   }
 

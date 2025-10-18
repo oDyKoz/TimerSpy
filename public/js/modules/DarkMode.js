@@ -19,7 +19,7 @@ const colors = {
     text: '#000',
     modalBackground: '#fff',
     modalText: '#000',
-    cardBackground: '#ffffffff'
+    cardBackground: '#ffffff'
   }
 };
 

@@ -84,7 +84,7 @@ export function setupPomodoro() {
   // Evento para o botão activate
   activate.addEventListener('click', (event) => {
     event.stopPropagation();
-    sidebar.style.display = 'flex';
+    sidebar.style.display = 'flex  ';
     sidebarPomoContent.style.display = 'none';
     sidebar.setAttribute('aria-hidden', 'false');
     sidebarPomoContent.setAttribute('aria-hidden', 'false');
